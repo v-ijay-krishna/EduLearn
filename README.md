@@ -1,7 +1,7 @@
 # EduLearn 🎓  
 AI-Powered Learning & Practice Platform with Secure API Integration  
 
-📺 **Demo Video**: [Watch here](https://youtu.be/xxxxx)  
+📺 **Demo Video**: [Watch here](https://youtu.be/RM3YPz_LqAE?feature=shared)  
 🌍 **Live Deployment**: [EduLearn on Render](https://edulearn-48sl.onrender.com)  
 
 ---
@@ -155,6 +155,7 @@ This project is licensed under the MIT License – free to use and modify.
 
 Built with ❤️ to make DSA learning engaging & fun 🚀
  
+
 
 
 
