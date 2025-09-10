@@ -60,7 +60,7 @@ EduLearn/
 
 ### Step 1: Clone Repository  
 ```bash
-git clone https://github.com/Suriya928/EduLearn.git
+git clone https://github.com/v-ijay-krishna/EduLearn.git
 cd EduLearn
 ```
 Step 2: Install Dependencies
@@ -155,6 +155,7 @@ This project is licensed under the MIT License – free to use and modify.
 
 Built with ❤️ to make DSA learning engaging & fun 🚀
  
+
 
 
 
