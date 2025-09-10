@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - AI-Powered Learning Platform</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="theme-light">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-icon">🎓</div>
+                <h2 class="logo-text">EduLearn</h2>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-message">Initializing your learning experience...</p>
+        </div>
+    </div>
+   <div id="loading-overlay" class="loading-overlay hidden">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <p>Generating your quiz, please wait...</p>
+  </div>
+</div>
+
+    <!-- Landing Page -->
+    <div id="landing-page" class="page-container landing-page">
+        <!-- Navigation Header -->
+        <header class="landing-header">
+            <nav class="landing-nav">
+                <div class="nav-brand">
+                    <div class="brand-icon">🎓</div>
+                    <span class="brand-name">EduLearn</span>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-btn" id="btn-show-login">Sign In</button>
+                    <button class="nav-btn nav-btn-primary" id="btn-show-register">Get Started</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⚡</span>
+                    <span class="badge-text">Powered by Advanced AI</span>
+                </div>
+                <h1 class="hero-title">
+                    Master Programming with 
+                    <span class="gradient-text">AI-Generated Quizzes</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Experience personalized learning with dynamically generated questions, 
+                    intelligent feedback, and adaptive difficulty levels. Perfect for 
+                    coding interviews and skill development.
+                </p>
+                <div class="hero-cta">
+                    <button class="cta-primary" id="btn-get-started">
+                        <span class="btn-text">Start Learning Today</span>
+                        <i class="fas fa-arrow-right btn-icon"></i>
+                    </button>
+                    <button class="cta-secondary" id="btn-explore-topics">
+                        <i class="fas fa-play btn-icon"></i>
+                        <span class="btn-text">Explore Topics</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon">🧮</div>
+                    <div class="card-content">
+                        <h4>Algorithms</h4>
+                        <p>LeetCode-style problems</p>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">🐍</div>
+                    <div class="card-content">
+                        <h4>Python</h4>
+                        <p>Data Science & Web Dev</p>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🟨</div>
+                    <div class="card-content">
+                        <h4>JavaScript</h4>
+                        <p>Modern ES6+ Features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose EduLearn?</h2>
+                    <p class="section-subtitle">Advanced AI technology meets educational excellence</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title">AI-Generated Questions</h3>
+                        <p class="feature-description">
+                            Dynamic question generation ensures fresh, relevant content 
+                            tailored to your learning pace and style.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">Adaptive Learning</h3>
+                        <p class="feature-description">
+                            Smart difficulty adjustment based on your performance 
+                            keeps you in the optimal learning zone.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Progress Analytics</h3>
+                        <p class="feature-description">
+                            Detailed insights into your learning journey with 
+                            comprehensive progress tracking and performance metrics.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="feature-title">Interview Preparation</h3>
+                        <p class="feature-description">
+                            Coding interview focused questions that mirror real 
+                            technical interview scenarios and patterns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Authentication Modals -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" id="btn-close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Login Form -->
+            <div id="login-form-container" class="auth-form-container">
+                <div class="form-header">
+                    <h2 class="form-title">Welcome Back</h2>
+                    <p class="form-subtitle">Sign in to continue your learning journey</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <div class="form-field">
+                        <label class="field-label">Email Address</label>
+                        <input type="email" id="login-email" class="field-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-field">
+                        <label class="field-label">Password</label>
+                        <input type="password" id="login-password" class="field-input" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-loader hidden">
+                            <div class="loader-spinner"></div>
+                        </div>
+                    </button>
+                </form>
+                <div class="form-footer">
+                    <p>Don't have an account? 
+                        <button class="link-btn" id="btn-switch-register">Create one here</button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form-container" class="auth-form-container hidden">
+                <div class="form-header">
+                    <h2 class="form-title">Join EduLearn</h2>
+                    <p class="form-subtitle">Create your account to start learning</p>
+                </div>
+                <form id="register-form" class="auth-form">
+                    <div class="form-field">
+                        <label class="field-label">Full Name</label>
+                        <input type="text" id="register-name" class="field-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-field">
+                        <label class="field-label">Email Address</label>
+                        <input type="email" id="register-email" class="field-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-field">
+                        <label class="field-label">Password</label>
+                        <input type="password" id="register-password" class="field-input" placeholder="Create a strong password" required>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loader hidden">
+                            <div class="loader-spinner"></div>
+                        </div>
+                    </button>
+                </form>
+                <div class="form-footer">
+                    <p>Already have an account? 
+                        <button class="link-btn" id="btn-switch-login">Sign in here</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="main-app" class="app-container hidden">
+        <!-- App Header -->
+        <!-- This is the updated App Header section -->
+<header class="app-header">
+    <div class="header-content">
+        <div class="header-left">
+            <button class="mobile-nav-toggle" id="btn-mobile-nav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="header-brand-link" id="btn-go-dashboard">
+                <div class="header-brand">
+                    <div class="brand-icon">🧠</div>
+                    <span class="brand-name">EduLearn</span>
+                </div>
+            </a>
+        </div>
+        <div class="header-user">
+            <div class="user-menu">
+                <button id="btn-logout" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>        <!-- App Navigation -->
+        <nav class="app-navigation"  id="app-navigation">
+            <div class="nav-header">
+        <button class="mobile-nav-close" id="btn-close-nav">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <button class="nav-link active" data-page="dashboard">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <span class="nav-label">Dashboard</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-page="topics">
+                        <i class="nav-icon fas fa-address-card"></i>
+                        <span class="nav-label">Topics</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-page="practice">
+                        <i class="nav-icon fas fa-code"></i>
+                        <span class="nav-label">Practice DSA</span>
+                    </button>
+                </li>
+            
+                <li class="nav-item">
+                    <button class="nav-link" data-page="tutor">
+                        <i class="nav-icon fas fa-robot"></i>
+                        <span class="nav-label">AI Tutor</span>
+                    </button>
+                </li>
+            
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page-content">
+                <div class="page-header">
+                    <h1 class="page-title">Dashboard</h1>
+                    <p class="page-subtitle">Welcome back! Here's your learning overview.</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="stat-total-quizzes">0</h3>
+                            <p class="stat-label">Quizzes Completed</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="stat-accuracy">0%</h3>
+                            <p class="stat-label">Average Accuracy</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="stat-streak">0</h3>
+                            <p class="stat-label">Current Streak</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="stat-best-streak">0</h3>
+                            <p class="stat-label">Best Streak</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Activity</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="recent-activity" class="activity-list">
+                                <div class="empty-state">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>Complete your first quiz to see activity here!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Topic Performance</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="topic-performance" class="performance-chart">
+                                <div class="empty-state">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <p>Practice different topics to see your performance breakdown!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topics Page -->
+            <div id="topics-page" class="page-content hidden">
+                <div class="page-header">
+                    <h1 class="page-title">Learning Topics</h1>
+                    <p class="page-subtitle">Choose a topic to start practicing with AI-generated questions</p>
+                </div>
+
+                <div id="topics-grid" class="topics-grid">
+                    <!-- Topics will be dynamically loaded -->
+                </div>
+            </div>
+
+            <!-- Quiz Configuration Page -->
+            <div id="quiz-config-page" class="page-content hidden">
+                <div class="page-header">
+                    <button class="back-btn" id="btn-back-to-topics">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Topics</span>
+                    </button>
+                    <h1 class="page-title">Configure Your Quiz</h1>
+                    <p class="page-subtitle">Customize your learning experience</p>
+                </div>
+
+                <div class="config-container">
+                    <div class="config-card">
+                        <div class="config-header">
+                            <h3>Selected Topic</h3>
+                            <div class="topic-display" id="selected-topic-display">
+                                <div class="topic-icon">📚</div>
+                                <div class="topic-info">
+                                    <h4 class="topic-name">Loading...</h4>
+                                    <p class="topic-desc">Please wait...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-options">
+                            <div class="option-group">
+                                <label class="option-label">Difficulty Level</label>
+                                <div class="difficulty-selector" id="difficulty-selector">
+                                    <!-- Difficulty options will be populated dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <label class="option-label">Number of Questions</label>
+                                <div class="quantity-selector">
+                                    <button class="quantity-btn" id="btn-decrease-questions">-</button>
+                                    <input type="number" id="question-count" value="5" min="3" max="20" readonly>
+                                    <button class="quantity-btn" id="btn-increase-questions">+</button>
+                                </div>
+                                <p class="option-help">Choose between 3-20 questions</p>
+                            </div>
+                        </div>
+                        
+                        <button class="generate-quiz-btn" id="btn-generate-quiz">
+                            <span class="btn-text">Generate Quiz</span>
+                            <i class="fas fa-magic btn-icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Taking Page -->
+            <div id="quiz-page" class="page-content hidden">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quiz-progress-fill"></div>
+                            </div>
+                            <span class="progress-text" id="quiz-progress-text">Question 1 of 5</span>
+                        </div>
+                        <div class="quiz-timer">
+                            <i class="fas fa-clock"></i>
+                            <span id="quiz-timer-display">00:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-content" id="quiz-content">
+                        <!-- Quiz questions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Page -->
+<div id="practice-page" class="page-content hidden">
+  <h1 class="practice-header">Practice DSA Questions</h1>
+  <div class="practice-container">
+    <div id="practice-sections"></div>
+  </div>
+</div>
+
+
+
+
+
+            <!-- AI Tutor Page -->
+            <div id="tutor-page" class="page-content hidden">
+                <div class="tutor-container">
+                    <div class="tutor-header">
+                        <div class="tutor-avatar">
+                            <div class="avatar-icon">🤖</div>
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div class="tutor-info">
+                            <h2 class="tutor-name">AI Programming Tutor</h2>
+                            <p class="tutor-status">Online • Ready to help</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message tutor-message">
+                                <div class="message-content">
+                                    <p>👋 Hello! I'm your AI programming tutor. I'm here to help you understand concepts, debug code, and answer any programming questions you might have. What would you like to learn about today?</p>
+                                </div>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <div class="input-wrapper">
+                                <textarea 
+                                    id="chat-input" 
+                                    placeholder="Ask me anything about programming, algorithms, or computer science..."
+                                    rows="1"
+                                    maxlength="500"
+                                ></textarea>
+                                <button class="send-btn" id="btn-send-message">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="input-hints">
+                                <div class="hint-chip">Explain algorithms</div>
+                                <div class="hint-chip">Debug my code</div>
+                                <div class="hint-chip">Best practices</div>
+                                <div class="hint-chip">Interview tips</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+</body>
+</html>
